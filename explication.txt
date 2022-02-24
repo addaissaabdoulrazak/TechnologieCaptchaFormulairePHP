@@ -1,0 +1,44 @@
+Dans cette partie nous allons voir commment securiser nos formulaire grâce a la  technologie des captcha
+et pour mettre en oeuvre l'utilisation de cette technologie nous allons utiliser le language php.
+..Dans un prémier temps nous allons changer --l'extension-- de notre fichier index.html en index.php
+  car un code php ne s'ecrit dans un fichier ayant pour extension .html c'est impossible, Mais Par contre
+  on peut ecrire du code html dans un fichier ayant pour extension .php(A retenir).
+
+IMPORTANT :
+-----------
+ D'abort faut savoir que nous ne pouvons pas affirmer que le captcha et le recaptcha sont des technologie sûr a 100%
+ ça n'existe pas(zéro risque n'existe pas).
+
+**ce que nous allons faire c'est de générer une image, une image totalement virtuel, de façon a empecher les robot classique
+**de lire notre image virtuel, En revanche il ya des robot qui sont capable, qui sont plus evoluer et qui peuvent lire des chiffrement
+
+..Et donc dans la partie html au lieu d'appeler une ressource png, ou jpg et bien non nous allons appeler une page php,
+ et cela signifie que nous allons grâce au code php  généré une image et c'est ça tout la diffrerence, par ce que  un robot
+ quand il va venir sur notre formulaire ce qu'il fera si je n'avais pas générer une image a travers la page.php il va recuperer
+ ce que nous allons ecrire par exemple un code il va le copier et le coller dans le champs du formulaire et donc le faite que creer
+ une image virtuelle le robot ne pourra pas faire un copier-coller. >>je vous incite a bien observez la balise html img ecrit comme suit
+ "<img src="captcha.php" alt="code" />".
+
+ ..Ainsi a partir de là, toute la magie va se passer dans le fichier captcha.php
+
+ NB : pour definir une image virtuelle ça va se passer En quatre(4) etapes :
+----
+     1ère Etape:  la première etape ça va être de definir un code aléatoire
+     -----------
+                
+     2ème Etape: 
+     -----------
+              ça serait de definir une image; car créer un code aleatoire c'est bien mais  par contre il va falloir  
+              transformé ce code aléatoire en image, Donc on va definir une image pour que les robot ne puisse pas effectuer
+              un copier-coller. 
+    
+    3ème Etape:
+    -----------
+              On va definir un text et on va lier l'image au text, et le text sera forcement le code aléatoire
+              qu'on aura  généré précédamment( au niveau de l'Etape n°1).
+
+    4ème Etape: cette etape consiste tout simplement a afficher notre image.
+    ----------          
+
+Par contre, Avant toutes choses, pour créer le système de captcha nous allons utiliser les session afin de pouvoir faire passer
+le code d'une page a une autre. suite d'explicatoi après!!
